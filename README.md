@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @Joel71-eng
-- 👀 I’m interested in learning proficiency in programing and collaborating with other industry players ...
+- 👀 I’m interested in learning proficiency in programing and collaborating with other senior industry players .👏..
 - 🌱 I’m currently learning c,python and html..
 - 💞️ I’m looking to collaborate on hardware programming tasks and any python projects..
 - 📫 Reach me on gmail  ogutigadjoel@gmail.com..
