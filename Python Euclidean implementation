@@ -1,0 +1,21 @@
+#Getting greatest common divisor
+def Euclidean(gcd):
+ if gcd[1]>gcd[0]:
+    n=gcd[0]
+    m=gcd[1]
+    gcd[0]=m
+    gcd[1]=n
+ r=(gcd[0]%gcd[1]) 
+  
+ if r==0:
+     return gcd[1]
+ else:    
+     return Euclidean([gcd[1],r])
+num=[236,30]     
+Answer=Euclidean(num)
+print("Greatest common divisor:",Answer)
+
+
+
+   
+ 
