@@ -1,0 +1,73 @@
+#Getting greatest common divisor
+def Euclidean(gcd):
+ if gcd[1]>gcd[0]:
+    n=gcd[0]
+    m=gcd[1]
+    gcd[0]=m
+    gcd[1]=n
+ r=(gcd[0]%gcd[1]) 
+  
+ if r==0:
+     return gcd[1]
+ else:    
+     return Euclidean([gcd[1],r])
+num=[236,30]     
+Answer=Euclidean(num)
+print("Greatest common divisor:",Answer)
+
+#factoring 1271
+for i in range(1,100):
+ print("\nNo1:",i)   
+ c=1070700150707942895227/i
+ 
+ print("No2:",c)
+print("\n") 
+#factors are (41,31) 
+
+#Breaking the private key 
+#determining d
+#totient_n=(41-1)*(31-1)=1200
+#Theory de=1mod(totient_n)
+#17*d=1mod(1200)
+#d=1200k+1 k is a positive integer
+for k in range(1,15):
+   d=(((1200*k)+1)/17)
+   print("d~:",d)
+   
+print("\n")
+#Thus d=353
+
+
+#Encrypting function
+def EncryptoG9(key,letter):
+  print("#letter code list")  
+  print(letter_code) 
+  print("#ciphertext list") 
+  for i in letter_code:
+      pb_key[0] =i
+      print("letter",i)
+      cat=pow(pb_key[0],pb_key[1])
+      c=(cat%pb_key[2])
+      print(c)
+      print("\n")
+     # ciphertext
+  #print(letter_code)    
+  
+letter_code=[20,8,5,28,3,15,21,18,19,5,28,23,1,19,28,5,14,10,15,25,1,2,12,5,29,9,14,20,5,18,1,3,20,9,22,5,28,1,14,4,28,5,4,21,3,1,20,9,22,5,27,23,5,28,18,5,3,15,13,13,5,14,4,28,13,15,18,5,28,17,21,9,26,26,5,19,27,18,1,20,5,4,28,19,5,22,5,14,28,15,21,20,28,15,6,28,20,5,14,27]  
+pb_key=[1,353,1271] #[7,e,n]
+
+ciphertext=EncryptoG9(pb_key,letter_code)
+
+#print(letter_code)
+
+#Decrypting function|
+def DecryptoG9(key):
+   dog=pow(pv_key[0],pv_key[1])
+   m=(dog%pv_key[2])
+   return m
+pv_key=[1,17,1271] #[c,d,n]
+originaltxt=DecryptoG9(pv_key)
+print("\nOriginal text~:",originaltxt)
+list=[4,5,7,9,8]
+
+    
