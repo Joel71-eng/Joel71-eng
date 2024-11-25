@@ -1,0 +1,66 @@
+def hackersG9(cows):
+ #check invalid list
+ if herds[0]<0 or herds[1]<0 or herds[2]<0:
+     print("Invalid list")
+  #decide for when craals neither equal nor zero
+  # strategy highest-(highest-lowest)  
+ if herds[1]>herds[0] >herds[2] and herds[2]!=0 :
+     herds[1]-=(herds[1]-herds[2])
+ elif herds[0]>herds[2] >herds[1] and herds[1]!=0:
+     herds[0]-=(herds[0]-herds[1])
+ elif herds[2]>herds[1] >herds[0] and herds[0]!=0:
+     herds[2]-=(herds[2]-herds[0])
+ elif herds[1] >herds[2] >herds[0] and herds[0]!=0:
+     herds[1]-=(herds[1]-herds[0])
+ elif herds[0] >herds[1] >herds[2] and herds[2]!=0:
+     herds[0]-=(herds[0]-herds[2])
+ elif herds[2] >herds[0]>herds[1] and herds[1]!=0:
+     herds[2]-=(herds[2]-herds[1])
+ 
+ #decide for when two herds are equal and other is not zero  
+ #strategy remove atleast a cow from lowest or highest   
+ elif herds[0]<herds[2] and herds[2]==herds[1] and herds[0]!=0:
+     herds[0]-=1
+ elif herds[2]==herds[1] and herds[0]>herds[2] and herds[0]!=0:
+     herds[2] -=1
+ elif herds[0] ==herds[1] and herds[2]>herds[0] and herds[2]!=0:
+     herds[1] -=1 
+ elif herds[0]==herds[1]  and herds[1]>herds[2] and herds[2]!=0:
+     herds[2] -=1 
+ elif herds[2] ==herds[0]   and herds[1]>herds[2] and herds[1]!=0:
+     herds[0]-=1
+ elif herds[2] ==herds[0]   and herds[1]<herds[2] and herds[1]!=0:
+     herds[ 1]-=1
+     
+  #decide for when all there herds are equal    
+ elif herds[0]==herds[1]==herds[2] :
+     herds[1] -=2 
+     
+  #decide for when two herds not equal and the other is zero  
+  #strategy remove atleast l cow from the bigger herd to a void 
+  #losing in[2,0,1] cases
+ elif herds[0]==0 and herds[2]>herds[1]:
+     herds[2]-=1
+ elif herds[0] ==0 and herds[1] >herds[2] :
+     herds[1]-=1
+ elif herds[1]==0 and herds[2] >herds[0] :
+     herds[2]-=1
+ elif herds[1]==0 and herds[0] >herds[2]  :
+     herds[0] -=1    
+ elif herds[2]==0 and herds[1]>herds[0]:
+     herds[1]-=1
+ elif herds[2] ==0 and herds[0]>herds[1] :
+     herds[0] -=1
+     
+ #Decide for when two herds are equal and the other is zero
+ #strategy remove atleast a cow from any>>bog down rival bot
+ elif herds[0]==0 and herds[1]==herds[2]:
+     herds[2] -=1
+ elif herds[1]==0 and herds[2]==herds[0]:
+     herds[0]-= 2
+ elif herds[2]==0 and herds[1]==herds[0]: 
+     herds[1] -=1     
+ return herds
+ 
+herds=[0,1,2]
+print(hackersG9(herds))
