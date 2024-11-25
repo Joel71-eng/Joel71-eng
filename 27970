@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<unistd.h>
+int main(){
+//Calculating execution time
+clock_t start,end;
+start=clock();
+time_t now=time(NULL);
+printf("%ld",now);
+sleep(2);
+time_t next=time(NULL);
+printf("\n%ld",next);
+long diff=difftime(next,now);//difference between times 
+printf("\n%ld",diff);
+//Getting formated time
+char *date=ctime(&now);
+printf("\n%s",date);
+struct tm *gm_time=localtime(&now);
+printf("\nSeconds:%d",gm_time->tm_sec);
+printf("\nMinutes%d",gm_time->tm_min);
+printf("\nHours:%d",gm_time->tm_hour);
+printf("\nDay:%d",gm_time->tm_wday);
+printf("\nDate of month:%d",gm_time->tm_mday);
+printf("\nDay of year:%d",gm_time->tm_yday);
+printf("\nMonth:%d",gm_time->tm_mon);
+printf("\nDay light savings time:%d",gm_time->tm_isdst);
+
+char *tmstring=asctime(gm_time);
+printf("\n%s",tmstring);
+gm_time->tm_min+=1;
+time_t hox=mktime(gm_time);
+printf("\nTime1:%ld",next);
+printf("\nTime2:%ld",hox);
+
+char s[100];
+strftime(s,100,"%A, %B, %Y, %X %p",gm_time);
+printf("\n%s",s);
+
+int y;
+for(int i=0;i<5;i++){
+srand(time(NULL));
+printf("\nEnter a number between 1 and 10\n:");
+scanf("%d",&y);
+int x=1+rand()%10;
+printf("\n%d",x);
+if(y==x){printf("\nCongraculations you win");}
+else{printf("\nYou lose \nThe correct figure is~%d\nPlease try again",x);}}
+end=clock();
+double total_t=(double)(end-start)/CLOCKS_PER_SEC;
+printf("\nExecution time:%lf",total_t);
+return 0;}
